@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../api/axios";
 
-export const getAllItemApi = createAsyncThunk(
-  "item/getAllItemApi",
+export const getOneItemApi = createAsyncThunk(
+  "item/getOneItemApi",
   async (payload, thunkApi) => {
     try {
-      const res = await axios.get("/item");
-
+      const res = await axios.get(`/item/get-one/${payload}`);
       return res.data;
     } catch (e) {
       return thunkApi.rejectWithValue(e.response.data);
@@ -16,24 +15,32 @@ export const getAllItemApi = createAsyncThunk(
 export const itemSlice = createSlice({
   name: "item",
   initialState: {
-    status: "IDLE" /* IDLE PENDING FAILED SUCCEEDED */,
-    items: [],
+    status: "IDLE" /* IDLE PENDING REJECTED SUCCEEDED */,
+    data: null,
   },
-
+  reducers: {
+    testLook: (state) => {
+      console.log("testLook");
+      console.log(state.data);
+      console.log(state.status);
+      console.log("testLook");
+    },
+    initializeItem: () => {
+      return { status: "IDLE", data: {} };
+    },
+  },
   extraReducers: (builder) => {
-    builder.addCase(getAllItemApi.fulfilled, (state, { payload }) => {
+    builder.addCase(getOneItemApi.fulfilled, (state, { payload }) => {
+      state.data = payload.data;
       state.status = "SUCCEEDED";
-      state.items = payload.data;
     });
-
-    builder.addCase(getAllItemApi.pending, (state, { payload }) => {
+    builder.addCase(getOneItemApi.pending, (state, { payload }) => {
       state.status = "PENDING";
-      state.items = [];
     });
-    builder.addCase(getAllItemApi.rejected, (state, { payload }) => {
-      state.status = "FAILED";
-      state.items = [];
+    builder.addCase(getOneItemApi.rejected, (state, { payload }) => {
+      state.status = "REJECTED";
     });
   },
 });
 export default itemSlice.reducer;
+export const { initializeItem, testLook } = itemSlice.actions;

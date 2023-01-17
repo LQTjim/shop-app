@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Carousel, Spinner } from "react-bootstrap";
 
 function Slides() {
   const [items, setItems] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+  const location = useLocation();
+
   useEffect(() => {
     fetch("/api/item/random-three")
       .then((r) => {
@@ -22,25 +25,33 @@ function Slides() {
           <Carousel fade variant="dark">
             {items.map((item) => {
               return (
-                <Carousel.Item interval={1000}>
+                <Carousel.Item interval={1000} key={item._id}>
                   <div
-                    className="d-flex"
-                    style={{ width: "60vw", aspectRatio: "16/9" }}
+                    className="d-flex align-items-center justify-content-center"
+                    style={{
+                      width: "60vw",
+                      aspectRatio: "16/9",
+                    }}
                   >
-                    <img
-                      className="mh-100 mw-100 d-blcok m-auto"
-                      src={item.image}
-                      alt={item.title}
-                    />
+                    <div className="w-50 h-50">
+                      <img
+                        className="d-block mh-100 mw-100 mx-auto"
+                        src={item.image}
+                        alt={item.title}
+                      />
+                    </div>
                   </div>
 
                   <Carousel.Caption>
-                    <h3
-                      className="text-dark"
-                      style={{ background: "rgb(0, 255, 255 ,0.5)" }}
+                    <Link
+                      className="text-decoration-none"
+                      to={`product/item/${item._id}`}
+                      state={{ from: location }}
                     >
-                      點我看看
-                    </h3>
+                      <h3 className="text-dark rounded bg-secondary">
+                        點我看看
+                      </h3>
+                    </Link>
                   </Carousel.Caption>
                 </Carousel.Item>
               );
@@ -48,7 +59,10 @@ function Slides() {
           </Carousel>
         </div>
       ) : (
-        <Spinner animation="border" />
+        <Spinner
+          className="position-fixed top-50 start-50"
+          animation="border"
+        />
       )}
       {/* <Carousel>
         <Carousel.Item interval={1000}>
