@@ -11,6 +11,10 @@ function Signup() {
 
   const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
+  /*  
+  這邊是為了配合動態更新第二次驗證密碼才使用useRef獲取節點value
+  全部用一個obj,useState更新,包起來可能比較方便
+  */
   const nameRef = useRef();
   const emailtRef = useRef();
   const passwordRef = useRef();

@@ -1,4 +1,4 @@
-####**==註冊的帳號皆為 role=user,role=admin 的帳號請去"關於我們"`(/about)`獲取==**
+#### **==註冊的帳號皆為 role=user,role=admin 的帳號請去 `關於我們(/about)`獲取==**
 
 ---
 
@@ -38,7 +38,7 @@
 ---
 
 用 **axios** 配合 在 redux 內的 createAsyncThunk api 獲取後端伺服資料
-用 **axios** 和 **async,await** 配合 **useEffect** 自定義 hook:`useCartItem` 在 **<CartItem\/>**使用獲取資料
+用 **axios** 和 **async,await** 配合 **useEffect** 自定義 hook:`useCartItem` 在 **<CartItem\/>** 使用獲取資料
 
 ---
 
@@ -48,19 +48,31 @@
 ---
 
 用 **JWT** 處理**authentication** 的帳號註冊和登入系統(當註冊或登入**成功後**,
-request 發出,後端丟出 cookie 及 user,client side 透過 redux set 資料 `{name,email,role}`).
+登入和註冊會送出資料給 server,server 會回傳一個名為 JWT 的 cookie(非 http-only),
+以及資料 `{name,email,role}`,前端透過 redux 將資訊存進 store 中做後續運用.
 
-當持有 cookie 時第一次 loading 頁面,
-透過 **<App\/>** 內 **js-cookie** 這個 package 判斷有無帶有 `{JWT=???}` 的 cookie 後登入
+當關掉瀏覽器重啟網頁的時候,在第一次 loading 頁面時,
+透過 **<App\/>** 內 **js-cookie** 這個 package 判斷有 `{JWT=???}` 的 cookie 後會自動進行登入,
 (rejected 時會在 extrareducer 內刪掉 cookie 並強制狀態為未登入預防 JWT cookie 存在但不能使用的情形)
-認證後的資料也用 **authrization** 區分了 role (如 **<Navbar\/>** 內的"後台" link 僅能由 `{role=admin}` 顯示)
+
+認證後的資料也用 **authrization** 區分了 role (如 **<Navbar\/>** 內的 **後台** link 僅能由 `{role=admin}` 顯示)
+request 發出,後端丟出 cookie 及 user,client side 透過 redux set 資料 `{name,email,role}`).
 
 ---
 
-用 **BOOTSTRAP5** 及**react-bootstrap**完成樣式及組件運用
-商品頁面的 <Product\/>下的<Items\/> 元件(路徑:/product)使用 BOOTSTRAP5 做了簡單的 **RWD**,
+用**BOOTSTRAP5**及**react-bootstrap**完成樣式及組件運用
+商品頁面的 **<Product\/>** 下的 **<Items\/>** 元件(路徑:/product)使用 BOOTSTRAP5 做了簡單的 **RWD**,
 全幅下 row 有 3 個物品,橫向小於 576 時為 1 個物品
+**react-bootstrap**的缺點是,很多東西都已封裝,想直接修改 sass 更改 root variable 是不可行的(已測試過)
+有些元件可能用**BOOTSTRAP**直接刻比較理想(純 BOOTSTRAP 可自行透過修改 sass 修改)
 
 ---
 
 用 **react-icons** 處理使用者頭像和錯誤提示等圖像
+
+---
+
+使用 **momentJS** 處理時間格式
+在使用 locale 時 須直接從 node module 下的 moment/locale/zh-tw 引用配置 config
+import moment from "moment";(一般只到這)
+import "moment/locale/zh-tw";(追加項)

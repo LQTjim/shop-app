@@ -9,5 +9,6 @@ async function fetchComment(id, callback) {
 export default function useGetComment(id, callback) {
   useEffect(() => {
     fetchComment(id, callback);
+    // eslint-disable-next-line
   }, []);
 }
