@@ -41,6 +41,7 @@ function Item() {
               }}
             >
               <img
+                crossorigin="anonymous"
                 className="mw-100 mh-100 m-auto"
                 src={data.image}
                 alt={data.title}

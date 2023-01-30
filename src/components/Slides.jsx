@@ -35,6 +35,7 @@ function Slides() {
                   >
                     <div className="w-50 h-50">
                       <img
+                        crossorigin="anonymous"
                         className="d-block mh-100 mw-100 mx-auto"
                         src={item.image}
                         alt={item.title}
