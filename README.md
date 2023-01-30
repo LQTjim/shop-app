@@ -1,3 +1,20 @@
+功能展示
+
+註冊
+![signup](https://user-images.githubusercontent.com/99523875/215364643-80067061-a247-498e-898e-511aa20d3408.gif)
+登入
+![login](https://user-images.githubusercontent.com/99523875/215364617-de23cea5-16db-4001-aea8-361c8c5487a9.gif)
+購物車操作
+![cartOperation](https://user-images.githubusercontent.com/99523875/215364600-cccc4ce7-070a-4334-a883-371840fd3ae8.gif)
+評論功能
+![comment](https://user-images.githubusercontent.com/99523875/215364615-6771a56e-7d5f-421b-854e-6b2db470bde6.gif)
+搜尋功能
+![searching](https://user-images.githubusercontent.com/99523875/215365013-5b647cc0-83a6-4355-9eec-77ba48824fbc.gif)
+價格排列(sorting)
+![filter](https://user-images.githubusercontent.com/99523875/215365020-32b7ce29-e352-45ea-9d8c-22f8e33ab6c6.gif)
+
+---
+
 #### **==註冊的帳號皆為 role=user,role=admin 的帳號請去 `關於我們(/about)`獲取==**
 
 ---
