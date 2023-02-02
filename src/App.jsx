@@ -16,6 +16,7 @@ import Items from "./components/Items";
 import Item from "./components/Item";
 import About from "./components/About";
 import Contact from "./pages/Contact";
+import UserInfo from "./pages/UserInfo";
 import ErrorPage from "./pages/ErrorPage";
 import OrderComplete from "./pages/OrderComplete";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -54,6 +55,7 @@ function App() {
           </Route>
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="user-info" element={<UserInfo />} />
           <Route path="order-complete" element={<OrderComplete />} />
           <Route path="error" element={<ErrorPage />} />
           <Route path="*" element={<ErrorPage />} />

@@ -31,7 +31,7 @@ function CartItem({ itemId, quantity }) {
           style={{ width: "125px", height: "75px" }}
         >
           <img
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
             className="mw-100 mh-100"
             alt={item.title}
             src={item.image}

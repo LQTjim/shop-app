@@ -13,7 +13,7 @@ function ItemCard({ item }) {
           }}
         >
           <img
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
             className="mw-100 mh-100 m-auto"
             src={item.image}
             alt={item.title}

@@ -53,7 +53,7 @@ function Navbar() {
       <Nav>
         {isAuth ? (
           <span className="d-flex align-items-center me-5">
-            <Nav.Link>
+            <Nav.Link to="/user-info" as={NavLink}>
               <FaUserCircle title={`嗨! , ${name}`} size={50} />
             </Nav.Link>
             <Button onClick={logoutHandle} className="mx-2">
