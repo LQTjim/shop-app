@@ -57,15 +57,7 @@ function Item() {
               >
                 {data.title}
               </Card.Title>
-              <Card.Text
-                style={{
-                  whiteSpace: "nowrap",
-                  textOverflow: "ellipsis",
-                  overflow: "hidden",
-                }}
-              >
-                {data.description}
-              </Card.Text>
+              <Card.Text>{data.description}</Card.Text>
               <Card.Text>
                 {data.price} <FiDollarSign size={15} />
               </Card.Text>
@@ -87,10 +79,12 @@ function Item() {
           <Comment id={id} isLogin={isLogin} />
         </div>
       ) : status === "PENDING" || status === "IDLE" ? (
-        <Spinner
-          className="position-fixed top-50 start-50"
-          animation="border"
-        />
+        <div className="vh-100">
+          <Spinner
+            className="position-fixed top-50 start-50"
+            animation="border"
+          />
+        </div>
       ) : (
         <Navigate to="/error" replace />
       )}

@@ -21,6 +21,7 @@ import ErrorPage from "./pages/ErrorPage";
 import OrderComplete from "./pages/OrderComplete";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Footer from "./components/Footer";
 
 //TODO 登入完成
 function App() {
@@ -33,12 +34,14 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <div className="bg-light bg-gradient vh-100">
+      <div className="bg-light bg-gradient d-flex flex-column min-vh-100">
+        <Navbar />
+        <hr className="align-self-center" style={{ width: "95%" }} />
         <Routes>
           {/* protected routes */}
           <Route element={<ProtectRoute />}>
             <Route path="admin" element={<Admin />} />
+            <Route path="user-info" element={<UserInfo />} />
           </Route>
           {/* 已登入狀態下,這個route會自動導回path:"/"或前一個使用的歷程 */}
           <Route element={<NotLoginRoute />}>
@@ -55,11 +58,11 @@ function App() {
           </Route>
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="user-info" element={<UserInfo />} />
           <Route path="order-complete" element={<OrderComplete />} />
           <Route path="error" element={<ErrorPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+        <Footer />
       </div>
     </>
   );

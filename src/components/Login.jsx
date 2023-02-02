@@ -37,7 +37,11 @@ function Login() {
     dispatch(loginApi(user));
   }
   return (
-    <div className="d-flex align-items-center justify-content-center mt-5">
+    <div
+      className="d-flex flex-column align-items-center justify-content-center mt-5"
+      style={{ height: "75vh" }}
+    >
+      <div className="fs-3">會員登入</div>
       <Form
         className="border rounded border-primary mt-3 p-4 "
         noValidate
@@ -68,15 +72,24 @@ function Login() {
           </FloatingLabel>
         </Form.Group>
         <div className="d-flex justify-content-between align-items-center">
-          <Button variant="primary" type="submit">
+          <Button className="me-1" variant="primary" type="submit">
             登入
           </Button>
+
           {hasErrorHint ? (
             <spsn>
               <BiCommentError size={28} color="red" />
               <span className="text-danger"> 帳號或密碼錯誤</span>
             </spsn>
           ) : null}
+        </div>
+        <div className="d-flex justify-content-between align-items-center mt-1">
+          <Button className="me-1" variant="primary" type="button">
+            用Admin登入
+          </Button>
+          <Button className="me-1" variant="primary" type="button">
+            一般User登入
+          </Button>
         </div>
       </Form>
     </div>

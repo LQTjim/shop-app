@@ -34,17 +34,17 @@ function Navbar() {
 
       <NavbarBs.Collapse id="basic-navbar-nav">
         <Nav className="me-0 ">
-          <Nav.Link to="product" as={NavLink} className="me-0 px-1">
+          <Nav.Link to="product" as={NavLink} className="me-0 px-1 fs-4">
             商品
           </Nav.Link>
-          <Nav.Link to="about" as={NavLink} className="me-0 px-1">
+          <Nav.Link to="about" as={NavLink} className="me-0 px-1  fs-4">
             關於我們
           </Nav.Link>
-          <Nav.Link to="contact" as={NavLink} className="me-0 px-1">
+          <Nav.Link to="contact" as={NavLink} className="me-0 px-1  fs-4">
             聯絡我們
           </Nav.Link>
           {role === "admin" ? (
-            <Nav.Link to="admin" as={NavLink} className="me-0 px-1">
+            <Nav.Link to="admin" as={NavLink} className="me-0 px-1  fs-4">
               後台
             </Nav.Link>
           ) : null}
@@ -52,7 +52,7 @@ function Navbar() {
       </NavbarBs.Collapse>
       <Nav>
         {isAuth ? (
-          <span className="d-flex align-items-center me-5">
+          <span className="d-flex align-items-center me-2">
             <Nav.Link to="/user-info" as={NavLink}>
               <FaUserCircle title={`嗨! , ${name}`} size={50} />
             </Nav.Link>
@@ -62,7 +62,7 @@ function Navbar() {
             <ShoppingCartIcon />
           </span>
         ) : (
-          <span className="d-flex align-items-center me-5">
+          <span className="d-flex align-items-center me-2">
             <Nav.Link to="/login" as={NavLink} className="me-0 px-1">
               登入
             </Nav.Link>

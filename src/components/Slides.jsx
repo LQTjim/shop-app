@@ -60,10 +60,12 @@ function Slides() {
           </Carousel>
         </div>
       ) : (
-        <Spinner
-          className="position-fixed top-50 start-50"
-          animation="border"
-        />
+        <div className="vh-100">
+          <Spinner
+            className="position-fixed top-50 start-50"
+            animation="border"
+          />
+        </div>
       )}
       {/* <Carousel>
         <Carousel.Item interval={1000}>

@@ -47,7 +47,11 @@ function Signup() {
 
   return (
     /* placeholder is requied but not work when float label implment */
-    <div className="d-flex align-items-center justify-content-center mt-5">
+    <div
+      className="d-flex flex-column align-items-center justify-content-center mt-4"
+      style={{ height: "75vh" }}
+    >
+      <div className="fs-3">會員註冊</div>
       <Form
         className="border rounded border-primary mt-3 p-4"
         noValidate
