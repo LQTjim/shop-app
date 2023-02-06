@@ -18,6 +18,9 @@ function CartOffcanvas() {
   function hideOffcanvas() {
     setIsShow(false);
   }
+  function clearnCart() {
+    dispatch(initializeCart());
+  }
 
   async function orderHandler() {
     const result = await dispatch(submitCartApi());
@@ -67,14 +70,21 @@ function CartOffcanvas() {
               </Link>
             </div>
           ) : (
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex flex-column align-items-end">
               <div>
                 總金額 :{" "}
                 {Number.parseFloat(
                   cart.reduce((acc, cur) => acc + cur.quantity * cur.price, 0)
                 ).toFixed(2)}
               </div>
-              <Button onClick={orderHandler}>送出訂單</Button>
+              <div>
+                <Button variant="danger" onClick={clearnCart}>
+                  清空購物車
+                </Button>
+                <Button className="ms-1" onClick={orderHandler}>
+                  送出訂單
+                </Button>
+              </div>
             </div>
           )}
         </Offcanvas.Body>

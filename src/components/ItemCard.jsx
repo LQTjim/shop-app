@@ -1,10 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart } from "../features/cartSlice";
 import { Button, Card } from "react-bootstrap";
 function ItemCard({ item }) {
   const dispatch = useDispatch();
+  const isLogin = useSelector((state) => state.auth.isLogin);
+  const location = useLocation();
+
   function addCartHandle() {
     dispatch(addItemToCart({ itemId: item._id, price: item.price }));
   }
@@ -42,7 +45,17 @@ function ItemCard({ item }) {
             >
               仔細看看
             </Link>
-            <Button onClick={addCartHandle}>加入購物車</Button>
+            {isLogin ? (
+              <Button onClick={addCartHandle}>加入購物車</Button>
+            ) : (
+              <Link
+                to="/login"
+                className="btn btn-primary"
+                state={{ from: location }}
+              >
+                加入購物車
+              </Link>
+            )}
           </div>
         </Card.Body>
       </Card>

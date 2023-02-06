@@ -7,7 +7,6 @@ import useGoTop from "./../api/useGoTop";
 import ItemCard from "./ItemCard";
 import PriceFilter from "./PriceFilter";
 import SideFilter from "./SideFilter";
-import { computeHeadingLevel } from "@testing-library/react";
 
 function Items() {
   const location = useLocation();
