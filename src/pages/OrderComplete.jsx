@@ -3,6 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 
 function OrderComplete() {
   const location = useLocation();
+  console.log(location.state);
 
   return (
     <>

@@ -23,12 +23,15 @@ function Slides() {
     <>
       <Banner />
       {isLoaded ? (
-        <div className="mx-auto my-4" style={{ width: "60vw", height: "70vh" }}>
-          <Carousel fade variant="dark">
+        <div
+          className="mx-auto my-4"
+          style={{ minWidth: "60vw", minHeight: "70vh" }}
+        >
+          <Carousel variant="dark">
             {items.map((item) => {
               return (
                 <Carousel.Item interval={1000} key={item._id}>
-                  <div
+                  {/* <div
                     className="d-flex align-items-center justify-content-center"
                     style={{
                       width: "60vw",
@@ -36,16 +39,44 @@ function Slides() {
                     }}
                   >
                     <div className="w-50 h-50">
+                      <Link
+                        className="text-decoration-none"
+                        to={`product/item/${item._id}`}
+                        state={{ from: location }}
+                      >
+                        <img
+                          crossOrigin="anonymous"
+                          className="d-block mh-100 mw-100 mx-auto"
+                          src={item.image}
+                          alt={item.title}
+                        />
+                      </Link>
+                    </div>
+                  </div> */}
+                  <Link
+                    className="text-decoration-none"
+                    to={`product/item/${item._id}`}
+                    state={{ from: location }}
+                  >
+                    <div
+                      className="mx-auto"
+                      style={{ width: "500px", height: "500px" }}
+                    >
                       <img
                         crossOrigin="anonymous"
-                        className="d-block mh-100 mw-100 mx-auto"
+                        className="d-block mw-100 mh-100 mx-auto"
                         src={item.image}
                         alt={item.title}
                       />
                     </div>
-                  </div>
-
-                  <Carousel.Caption>
+                  </Link>
+                  <span
+                    className="d-flex justify-content-center p-5"
+                    alt={item.title}
+                  >
+                    {item.title}
+                  </span>
+                  {/* <Carousel.Caption>
                     <Link
                       className="text-decoration-none"
                       to={`product/item/${item._id}`}
@@ -55,7 +86,7 @@ function Slides() {
                         點我看看
                       </h3>
                     </Link>
-                  </Carousel.Caption>
+                  </Carousel.Caption> */}
                 </Carousel.Item>
               );
             })}

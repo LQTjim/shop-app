@@ -3,8 +3,8 @@ import { FaFilter } from "react-icons/fa";
 
 function SideFilter(props) {
   return (
-    <div className="vh-100 fs-3" style={{ flex: "0 0 11.875rem" }}>
-      <div className="ms-2 mb-3 fs-2">
+    <div className="fs-3 ms-5" style={{ flex: "0 0 11rem" }}>
+      <div className="ms-3 my-5 fs-2">
         <FaFilter size={20} /> {"  "}商品分類
       </div>
       <div className="ms-2" onChange={props.onChange}>

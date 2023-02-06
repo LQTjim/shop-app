@@ -16,18 +16,23 @@ function Contact() {
         <div>
           <div>
             <a href="https://github.com/LQTjim/server-for-shop-app">
-              server side code (MongoDB express react node)
+              server side code (MongoDB+express+react+node)
             </a>
             <div>
-              <strong>
-                不包含env,react打包至此,以client side rendering方式呈現
-              </strong>
+              <strong className="fs-5">不包含env!!!</strong>react打包至node
+              server,以client side rendering方式部署在render.com
             </div>
+            <div>數據皆存在MongoDB Atlas裡</div>
           </div>
           <br />
           <div>
             <a href="https://github.com/LQTjim/shop-app">client side code</a>
           </div>
+          <span>
+            code下方的README.md review有附加
+            <strong className="fs-5">懶人包</strong>
+            喔!
+          </span>
         </div>
       </div>
     </>

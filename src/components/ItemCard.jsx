@@ -12,17 +12,17 @@ function ItemCard({ item }) {
     dispatch(addItemToCart({ itemId: item._id, price: item.price }));
   }
   return (
-    <div className="col-lg-4 col-md-12">
+    <div className="col-lg-4 flex-shrink-1">
       <Card>
         <div
           className="d-flex mt-3 mx-1"
           style={{
-            height: "50vh",
+            height: "300px",
           }}
         >
           <img
             crossOrigin="anonymous"
-            className="mw-100 mh-100 m-auto"
+            className="mw-100 mh-100 m-auto flex-shrink-1"
             src={item.image}
             alt={item.title}
           />

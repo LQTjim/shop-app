@@ -5,21 +5,22 @@
 登入
 ![login](https://user-images.githubusercontent.com/99523875/215364617-de23cea5-16db-4001-aea8-361c8c5487a9.gif)
 購物車操作
-![cartOperation](https://user-images.githubusercontent.com/99523875/215364600-cccc4ce7-070a-4334-a883-371840fd3ae8.gif)
+
 評論功能
-![comment](https://user-images.githubusercontent.com/99523875/215364615-6771a56e-7d5f-421b-854e-6b2db470bde6.gif)
+
 搜尋功能
-![searching](https://user-images.githubusercontent.com/99523875/215365013-5b647cc0-83a6-4355-9eec-77ba48824fbc.gif)
+
 價格排列(sorting)
-![filter](https://user-images.githubusercontent.com/99523875/215365020-32b7ce29-e352-45ea-9d8c-22f8e33ab6c6.gif)
 
 ---
 
-#### **==註冊的帳號皆為 role=user,role=admin 的帳號請去 `關於我們(/about)`獲取==**
+#### **==註冊的帳號皆為 role=user,role=admin 的帳號請去 `關於我們(/about)`獲取,現在登入介面直接提供一鍵登入==**
 
 ---
 
-用 **useState** 和 **useEffect** 完成路徑 **`/product`** 下的物品搜尋功能,附加搜尋延遲(debounce).追加依據價格高低 **sort** 排列.
+用 **useState** 和 **useEffect** 完成路徑 **`/product`** 下的物品搜尋功能,附加搜尋延遲(debounce).
+追加依據價格高低 **sort** 排列.
+追加側欄的商品分類
 
 ---
 
@@ -51,6 +52,7 @@
 
 用 **proxy** 配置代理為了獲取同源後端資源
 (解決 cors 問題,**後端為 8080**,**前端為 3000**)
+添加 crossOrigin="anonymous" attribute 解決部署後伺服因 CSP 擋住外部圖片的問題
 
 ---
 

@@ -24,7 +24,7 @@ function Banner() {
           className="fs-3 d-flex align-self-center justify-content-center"
           style={{ flexGrow: 1 }}
         >
-          會猶豫是因為你很想要
+          會猶豫是因為你很想要,眾多商品皆在React商店
         </span>
         <Link
           to="/product"

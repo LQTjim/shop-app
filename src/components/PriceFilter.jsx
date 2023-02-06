@@ -3,7 +3,7 @@ import React from "react";
 function PriceFilter(props) {
   return (
     <div
-      className="w-75 d-flex fs-4 justify-content-around"
+      className="w-75 mt-3 d-flex fs-4 justify-content-around"
       onChange={props.onChange}
     >
       <div className="form-check">

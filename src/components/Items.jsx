@@ -81,14 +81,12 @@ let content = keywordData;
   if (sideFilter) {
     content = content.filter((el) => el.category === sideFilter);
   }
-  console.log(keyword, keywordData.length);
   return (
     <>
       <div className="mt-5 d-flex">
         <SideFilter onChange={sideFilterHandle} />
-
         <div
-          className="d-flex flex-column align-items-center"
+          className="d-flex flex-column align-items-center flex-shrink-1"
           style={{ width: "calc(100vw - 11.875rem)" }}
         >
           <div className="input-group mb-3 w-75">
@@ -105,19 +103,19 @@ let content = keywordData;
           </div>
 
           <PriceFilter onChange={filterHandle} />
-          <div className="d-flex flex-column justify-content-center align-items-center">
+          <div className="d-flex flex-column justify-content-center align-items-center flex-shrink-1">
             {status === "SUCCEEDED" ? (
-              <div className="m-5">
-                {content.length === 0 && keyword !== "" ? (
-                  <div>搜尋不到 : {keyword}</div>
-                ) : (
-                  <div className="row g-1 justify-content-center p-2 border border-primary rounded-3">
+              content.length === 0 && keyword !== "" ? (
+                <div className="mt-5">搜尋不到 : {keyword}</div>
+              ) : (
+                <div className="container" style={{ width: "90%" }}>
+                  <div className="mt-4 row g-1 p-2 border border-primary rounded-3">
                     {content.map((item) => (
                       <ItemCard key={item.id} item={item}></ItemCard>
                     ))}
                   </div>
-                )}
-              </div>
+                </div>
+              )
             ) : (
               <div className="vh-100">
                 <Spinner
