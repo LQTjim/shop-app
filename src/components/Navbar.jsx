@@ -30,6 +30,7 @@ function Navbar() {
       <NavbarBs.Toggle aria-controls="basic-navbar-nav" />
       <NavbarBs.Brand to="/" as={NavLink}>
         <img src={logo} alt="logo" style={{ width: "90px", height: "90px" }} />
+        <span className="fs-3 d-none d-lg-inline">React商店</span>
       </NavbarBs.Brand>
 
       <NavbarBs.Collapse id="basic-navbar-nav">
@@ -62,12 +63,13 @@ function Navbar() {
             <ShoppingCartIcon />
           </span>
         ) : (
-          <span className="d-flex align-items-center me-2">
-            <Nav.Link to="/login" as={NavLink} className="me-0 px-1">
+          <span className="d-flex align-items-center me-2 fs-5">
+            <Nav.Link to="/login" as={NavLink} className="me-0 px-2">
               登入
             </Nav.Link>
-            <Nav.Link to="/signup" as={NavLink} className="me-0 px-1">
-              註冊會員
+            <div className="text-light">|</div>
+            <Nav.Link to="/signup" as={NavLink} className="me-0 px-2">
+              註冊
             </Nav.Link>
             <Nav.Link to="/login" as={NavLink}>
               <FiShoppingCart color="gray" size={50} />

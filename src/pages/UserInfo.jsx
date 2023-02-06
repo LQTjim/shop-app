@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { FaUserCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -8,9 +9,10 @@ function UserInfo() {
 
   return (
     <div className="text-center mt-5" style={{ height: "80vh" }}>
-      <div className="my-5 fs-3">使用者名稱 : {user.name}</div>
-      <div className="my-5 fs-3">使用者信箱 : {user.email}</div>
-      <div className="my-5 fs-3">
+      <FaUserCircle size={120} />
+      <div className="mb-4 fs-3">使用者名稱 : {user.name}</div>
+      <div className="my-4 fs-3">使用者信箱 : {user.email}</div>
+      <div className="mt-4 fs-3">
         使用者狀態 : {user.role === "admin" ? "管理員" : "一般使用者"}
       </div>
       <Link to="/product">

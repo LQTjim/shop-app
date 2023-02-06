@@ -1,10 +1,15 @@
 import React from "react";
-import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../features/cartSlice";
+import { Button, Card } from "react-bootstrap";
 function ItemCard({ item }) {
+  const dispatch = useDispatch();
+  function addCartHandle() {
+    dispatch(addItemToCart({ itemId: item._id, price: item.price }));
+  }
   return (
-    // don't use 'col' here ,(flex:1 0) will break the width
-    <div className="col-sm-4">
+    <div className="col-lg-4 col-md-12">
       <Card>
         <div
           className="d-flex mt-3 mx-1"
@@ -28,14 +33,17 @@ function ItemCard({ item }) {
           >
             {item.title}
           </Card.Title>
-          <div>價格 : {item.price}</div>
-          <Link
-            to={`item/${item._id}`}
-            params={`${item._id}`}
-            className="btn btn-primary"
-          >
-            仔細看看
-          </Link>
+          <div className="mb-1">價格 : {item.price}</div>
+          <div className="d-flex justify-content-between">
+            <Link
+              to={`item/${item._id}`}
+              params={`${item._id}`}
+              className="btn btn-primary"
+            >
+              仔細看看
+            </Link>
+            <Button onClick={addCartHandle}>加入購物車</Button>
+          </div>
         </Card.Body>
       </Card>
     </div>

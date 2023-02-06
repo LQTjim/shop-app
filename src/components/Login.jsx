@@ -77,18 +77,43 @@ function Login() {
           </Button>
 
           {hasErrorHint ? (
-            <spsn>
+            <span>
               <BiCommentError size={28} color="red" />
               <span className="text-danger"> 帳號或密碼錯誤</span>
-            </spsn>
+            </span>
           ) : null}
         </div>
+        <hr />
         <div className="d-flex justify-content-between align-items-center mt-1">
-          <Button className="me-1" variant="primary" type="button">
-            用Admin登入
+          <Button
+            className="me-1"
+            variant="primary"
+            type="button"
+            onClick={() => {
+              dispatch(
+                loginApi({
+                  email: "312@gmail.com",
+                  password: "test1234",
+                })
+              );
+            }}
+          >
+            Admin登入
           </Button>
-          <Button className="me-1" variant="primary" type="button">
-            一般User登入
+          <Button
+            className="me-1"
+            variant="primary"
+            type="button"
+            onClick={() => {
+              dispatch(
+                loginApi({
+                  email: "testuser123@gmail.com",
+                  password: "test1234",
+                })
+              );
+            }}
+          >
+            User登入
           </Button>
         </div>
       </Form>

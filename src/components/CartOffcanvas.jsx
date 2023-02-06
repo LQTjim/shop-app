@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Offcanvas } from "react-bootstrap";
 import { FiShoppingCart } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { initializeCart, submitCartApi } from "../features/cartSlice";
 import CartItem from "./CartItem";
 
@@ -51,13 +51,22 @@ function CartOffcanvas() {
             <span className="ms-2">購物車</span>
           </Offcanvas.Title>
         </Offcanvas.Header>
+
         <Offcanvas.Body>
           {cart.map((el) => {
             return <CartItem key={el.itemId} {...el} />;
           })}
         </Offcanvas.Body>
         <Offcanvas.Body>
-          {cart.length === 0 ? null : (
+          {cart.length === 0 ? (
+            <div className="d-flex justify-content-center align-items-center">
+              <Link to="/product">
+                <Button className="fs-4" onClick={hideOffcanvas}>
+                  來去購物!gogogo!
+                </Button>
+              </Link>
+            </div>
+          ) : (
             <div className="d-flex justify-content-between align-items-center">
               <div>
                 總金額 :{" "}

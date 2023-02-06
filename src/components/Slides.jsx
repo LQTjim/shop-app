@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Carousel, Spinner } from "react-bootstrap";
+import Banner from "./Banner";
 
 function Slides() {
   const [items, setItems] = useState([]);
@@ -20,8 +21,9 @@ function Slides() {
 
   return (
     <>
+      <Banner />
       {isLoaded ? (
-        <div className="mx-auto my-4" style={{ width: "60vw" }}>
+        <div className="mx-auto my-4" style={{ width: "60vw", height: "70vh" }}>
           <Carousel fade variant="dark">
             {items.map((item) => {
               return (

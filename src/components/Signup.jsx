@@ -59,21 +59,21 @@ function Signup() {
         onSubmit={handleSubmit}
       >
         <Form.Group className="mb-3" controlId="formBasicName">
-          <FloatingLabel controlId="formBasicName" label="請輸入帳號">
+          <FloatingLabel controlId="formBasicName" label="請輸入名稱">
             <Form.Control
               ref={nameRef}
               type="text"
-              placeholder="請輸入帳號"
+              placeholder="請輸入名稱"
               required
               pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$"
-              title="帳號須為6-12個字,僅限英文大小寫及數字"
+              title="名稱須為6-12個字,僅限英文大小寫及數字"
               onChange={() => {
                 setValidated(false);
               }}
             />
           </FloatingLabel>
           <Form.Control.Feedback type="invalid">
-            帳號須為6-12個字,僅限英文大小寫及數字
+            名稱須為6-12個字,僅限英文大小寫及數字
           </Form.Control.Feedback>
         </Form.Group>
 
