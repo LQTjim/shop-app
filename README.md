@@ -1,16 +1,21 @@
 功能展示
 
-註冊
-![signup](https://user-images.githubusercontent.com/99523875/215364643-80067061-a247-498e-898e-511aa20d3408.gif)
+
+
 登入
-![login](https://user-images.githubusercontent.com/99523875/215364617-de23cea5-16db-4001-aea8-361c8c5487a9.gif)
+![LOGIN](https://user-images.githubusercontent.com/99523875/217139011-fcc64e21-effe-4a5a-8d1f-df3be9e5cf42.gif)
 購物車操作
-
+![CART](https://user-images.githubusercontent.com/99523875/217139035-7e3c67a1-3a5c-4123-8cd1-f20770fea442.gif)
+路由重新導向
+![PROTECHTEDROUTE](https://user-images.githubusercontent.com/99523875/217139221-1bb58043-f07c-4421-9d6d-1728d83c7201.gif)
 評論功能
-
+![COMMENT](https://user-images.githubusercontent.com/99523875/217139833-e6d68207-e069-4e84-b423-b055ec315c77.gif)
 搜尋功能
-
+![SEARCHING](https://user-images.githubusercontent.com/99523875/217139058-ea8e2852-5df3-4be2-9d99-e24ed3119edd.gif)
 價格排列(sorting)
+![PRICEFILTER](https://user-images.githubusercontent.com/99523875/217139095-eac3f40a-dbe6-4e4a-9042-eabecb4d324a.gif)
+分類功能
+![SIDEFILTER](https://user-images.githubusercontent.com/99523875/217139142-97f615a0-5e41-401f-8a64-469b1eb80d42.gif)
 
 ---
 
