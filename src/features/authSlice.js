@@ -96,7 +96,7 @@ export const authSlice = createSlice({
       state.role = payload.data.user.role;
     });
     builder.addCase(loginApi.pending, (state, { payload }) => {
-      state.status = "PDENDING";
+      state.status = "PENDING";
     });
     builder.addCase(loginApi.rejected, (state, { payload }) => {
       state.isLogin = false;

@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginApi, initialize } from "../features/authSlice";
 import { BiCommentError } from "react-icons/bi";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
+import PendingModal from "./PendingModal";
 
 function Login() {
   const location = useLocation();
   const dispatch = useDispatch();
   const { status } = useSelector((state) => state.auth);
 
+  const [show, setShow] = useState(false);
   const [user, setUser] = useState({});
   const hasErrorHint = status === "REJECTED" || false;
 
@@ -21,7 +23,13 @@ function Login() {
         dispatch(initialize());
       }
     };
-  }, [status, dispatch]);
+    // eslint-disable-next-line
+  }, []);
+  useEffect(() => {
+    if (status !== "PENDING") {
+      return setShow(false);
+    }
+  }, [status]);
 
   function handleUser(payload) {
     setUser((prev) => {
@@ -35,6 +43,7 @@ function Login() {
       return;
     }
     dispatch(loginApi(user));
+    setShow(true);
   }
   return (
     <div
@@ -42,6 +51,7 @@ function Login() {
       style={{ height: "75vh" }}
     >
       <div className="fs-3">會員登入</div>
+      <PendingModal show={show}>登入中，請稍待。</PendingModal>
       <Form
         className="border rounded border-primary mt-3 p-4 "
         noValidate
