@@ -19,7 +19,8 @@ import Contact from "./pages/Contact";
 import UserInfo from "./pages/UserInfo";
 import ErrorPage from "./pages/ErrorPage";
 import OrderComplete from "./pages/OrderComplete";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/index.scss";
 import "./App.css";
 import Footer from "./components/Footer";
 
@@ -34,8 +35,9 @@ function App() {
 
   return (
     <>
-      <div className="bg-light bg-gradient d-flex flex-column min-vh-100">
+      <div className="d-flex flex-column vh-100 bg-light bg-gradient">
         <Navbar />
+
         <hr className="align-self-center" style={{ width: "95%" }} />
         <Routes>
           {/* protected routes */}

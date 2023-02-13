@@ -45,12 +45,12 @@ function CartOffcanvas() {
         style={{ cursor: "pointer" }}
         onClick={showOffcanvas}
         color="gray"
-        size={50}
+        size={30}
       />
       <Offcanvas show={isShow} onHide={hideOffcanvas} placement="end">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
-            <FiShoppingCart size={50} />
+            <FiShoppingCart size={30} />
             <span className="ms-2">購物車</span>
           </Offcanvas.Title>
         </Offcanvas.Header>
