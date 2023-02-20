@@ -7,6 +7,8 @@ import useGoTop from "./../api/useGoTop";
 import ItemCard from "./ItemCard";
 import PriceFilter from "./PriceFilter";
 import SideFilter from "./SideFilter";
+import "./../styles/items.css";
+import SearchFilter from "./SearchFilter";
 
 function Items() {
   const location = useLocation();
@@ -83,48 +85,29 @@ let content = keywordData;
   }
   return (
     <>
-      <div className="mt-5 d-flex">
+      <div className="d-flex flex-column align-items-center">
+        <SearchFilter onChange={searchBarHandle} keyword={keyword} />
         <SideFilter onChange={sideFilterHandle} />
-        <div
-          className="d-flex flex-column align-items-center flex-shrink-1"
-          style={{ width: "calc(100vw - 11.875rem)" }}
-        >
-          <div className="input-group mb-3 w-75">
-            <span className="input-group-text" id="basic-addon1">
-              搜尋 :
-            </span>
-            <input
-              onChange={searchBarHandle}
-              value={keyword}
-              type="text"
-              className="form-control"
-              placeholder="搜尋商品"
-            />
-          </div>
-
-          <PriceFilter onChange={filterHandle} />
-          <div className="d-flex flex-column justify-content-center align-items-center flex-shrink-1">
-            {status === "SUCCEEDED" ? (
-              content.length === 0 && keyword !== "" ? (
-                <div className="mt-5">搜尋不到 : {keyword}</div>
-              ) : (
-                <div className="container" style={{ width: "90%" }}>
-                  <div className="mt-4 row g-1 p-2 border border-primary rounded-3">
-                    {content.map((item) => (
-                      <ItemCard key={item.id} item={item}></ItemCard>
-                    ))}
-                  </div>
-                </div>
-              )
+        <PriceFilter onChange={filterHandle} />
+        <div className="d-flex flex-column justify-content-center align-items-center flex-shrink-1">
+          {status === "SUCCEEDED" ? (
+            content.length === 0 && keyword !== "" ? (
+              <div className="mt-5">搜尋不到 : {keyword}</div>
             ) : (
-              <div className="vh-100">
-                <Spinner
-                  className="position-fixed top-50 start-50"
-                  animation="border"
-                />
+              <div className="mt-4 d-grid">
+                {content.map((item) => (
+                  <ItemCard key={item.id} item={item}></ItemCard>
+                ))}
               </div>
-            )}
-          </div>
+            )
+          ) : (
+            <div className="vh-100">
+              <Spinner
+                className="position-fixed top-50 start-50"
+                animation="border"
+              />
+            </div>
+          )}
         </div>
       </div>
     </>

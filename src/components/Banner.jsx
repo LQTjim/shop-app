@@ -13,25 +13,25 @@ function Banner() {
         }}
       >
         <img
-          className="ms-2"
+          className="ms-2 banner-img"
           crossOrigin="anonymous"
-          width={100}
           style={{ mixBlendMode: "darken" }}
           src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-          alt="img"
+          alt=""
         />
         <span
-          className="fs-3 d-flex align-self-center justify-content-center"
+          className="fs-3  d-sm-flex align-self-center justify-content-center d-none"
           style={{ flexGrow: 1 }}
         >
-          會猶豫是因為你很想要,眾多商品皆在React商店
+          會猶豫是因為你很想要
+          <span className="d-lg-flex d-none ms-1">眾多商品皆在React商店</span>
         </span>
         <Link
           to="/product"
           className=" d-flex align-self-center justify-content-center"
           style={{ flexGrow: 0.5, textDecoration: "none" }}
         >
-          <Button className="fw-bold" variant="outline-success">
+          <Button className="fw-bold fs-3" variant="outline-success">
             來去購物吧!
           </Button>
         </Link>

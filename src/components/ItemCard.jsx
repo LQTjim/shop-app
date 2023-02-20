@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart } from "../features/cartSlice";
-import { Button, Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import "./../styles/itemCard.css";
 function ItemCard({ item }) {
   const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.auth.isLogin);
@@ -12,53 +13,36 @@ function ItemCard({ item }) {
     dispatch(addItemToCart({ itemId: item._id, price: item.price }));
   }
   return (
-    <div className="col-lg-4 flex-shrink-1">
-      <Card>
-        <div
-          className="d-flex mt-3 mx-1"
-          style={{
-            height: "300px",
-          }}
-        >
+    <div className="border rounded p-2 item-card-container">
+      <Link to={`item/${item._id}`} params={`${item._id}`}>
+        <div className="rounded item-card-img-wrapper">
           <img
             crossOrigin="anonymous"
-            className="mw-100 mh-100 m-auto flex-shrink-1"
+            className="item-card-img"
             src={item.image}
             alt={item.title}
           />
         </div>
+      </Link>
 
-        <Card.Body>
-          <Card.Title
-            className="overflow-hidden"
-            style={{ whiteSpace: "nowrap", textOverflow: "ellipsis" }}
-            title={item.title}
+      <div className="overflow-hidden fs-5 item-card-title" title={item.title}>
+        {item.title}
+      </div>
+      <div className="mb-1">價格 : {item.price}</div>
+      <div className="mb-1">評分 : {item.rating.rate}</div>
+      <div className="d-flex justify-content-between">
+        {isLogin ? (
+          <Button onClick={addCartHandle}>加入購物車</Button>
+        ) : (
+          <Link
+            to="/login"
+            className="btn btn-primary"
+            state={{ from: location }}
           >
-            {item.title}
-          </Card.Title>
-          <div className="mb-1">價格 : {item.price}</div>
-          <div className="d-flex justify-content-between">
-            <Link
-              to={`item/${item._id}`}
-              params={`${item._id}`}
-              className="btn btn-primary"
-            >
-              仔細看看
-            </Link>
-            {isLogin ? (
-              <Button onClick={addCartHandle}>加入購物車</Button>
-            ) : (
-              <Link
-                to="/login"
-                className="btn btn-primary"
-                state={{ from: location }}
-              >
-                加入購物車
-              </Link>
-            )}
-          </div>
-        </Card.Body>
-      </Card>
+            加入購物車
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

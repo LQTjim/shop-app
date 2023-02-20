@@ -1,72 +1,117 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import {
+  BsChevronCompactLeft,
+  BsChevronCompactRight,
+  BsDot,
+} from "react-icons/bs";
 import { Carousel, Spinner } from "react-bootstrap";
 import Banner from "./Banner";
+import "./../styles/slides.css";
+import ErrorPage from "../pages/ErrorPage";
 
 function Slides() {
   const [items, setItems] = useState([]);
-  const [isLoaded, setLoaded] = useState(false);
+  const [status, setStatus] = useState("IDLE");
   const location = useLocation();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHover, setIsHover] = useState(false);
 
   useEffect(() => {
     fetch("/api/item/random-three")
       .then((r) => {
+        setStatus("PENDING");
         return r.json();
       })
       .then((d) => {
         setItems(d.data);
-        setLoaded(true);
-      });
+        setStatus("SUCCESS");
+      })
+      .catch((e) => {});
   }, []);
-
+  //輪播,當hover暫停輪播
+  useEffect(() => {
+    if (isHover) {
+      return;
+    }
+    if (status === "SUCCESS") {
+      const timeId = setTimeout(() => {
+        nextSlide();
+      }, 1000);
+      return () => {
+        clearTimeout(timeId);
+      };
+    }
+  });
+  function prevSlide() {
+    const isfirstIndex = currentIndex === 0;
+    setCurrentIndex(isfirstIndex ? items.length - 1 : currentIndex - 1);
+  }
+  function nextSlide() {
+    const islastIndex = currentIndex === items.length - 1;
+    setCurrentIndex(islastIndex ? 0 : currentIndex + 1);
+  }
   return (
     <>
       <Banner />
-      {/* {isLoaded ? (
-        <div
-          className="mx-auto my-4"
-          style={{ minWidth: "60vw", minHeight: "70vh" }}
-        >
-          <Carousel variant="dark">
-            {items.map((item) => {
-              return (
-                <Carousel.Item interval={1000} key={item._id}>
-                  <Link
-                    className="text-decoration-none"
-                    to={`product/item/${item._id}`}
-                    state={{ from: location }}
-                  >
-                    <div
-                      className="mx-auto"
-                      style={{ width: "500px", height: "500px" }}
-                    >
-                      <img
-                        crossOrigin="anonymous"
-                        className="d-block mw-100 mh-100 mx-auto"
-                        src={item.image}
-                        alt={item.title}
-                      />
-                    </div>
-                  </Link>
-                  <span
-                    className="d-flex justify-content-center p-5"
-                    alt={item.title}
-                  >
-                    {item.title}
-                  </span>
-                </Carousel.Item>
-              );
-            })}
-          </Carousel>
+      {status === "SUCCESS" ? (
+        <div className="d-flex justify-content-center">
+          <div
+            className="position-relative slide-conatainer p-2"
+            onMouseEnter={() => {
+              setIsHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsHover(false);
+            }}
+          >
+            <Link
+              className="text-decoration-none"
+              to={`/product/item/${items[currentIndex]?._id}`}
+              state={{ from: location }}
+            >
+              <div className="slide-img-wrapper">
+                <img
+                  className="slide-img rounded "
+                  src={`${items[currentIndex]?.image}`}
+                  alt={`${items[currentIndex]?.title}`}
+                />
+              </div>
+            </Link>
+            <BsChevronCompactLeft
+              className="position-absolute left-icon"
+              onClick={prevSlide}
+              size={40}
+            />
+            <BsChevronCompactRight
+              className="position-absolute right-icon"
+              onClick={nextSlide}
+              size={40}
+            />
+            <div className="slide-dot-group d-flex justify-content-center">
+              {items.map((item, index) => (
+                <BsDot
+                  key={index}
+                  className={`slide-dot ${
+                    currentIndex === index ? "slide-dot-select" : null
+                  }`}
+                  onClick={() => {
+                    setCurrentIndex(index);
+                  }}
+                  size={30}
+                />
+              ))}
+            </div>
+          </div>
         </div>
+      ) : status === "FAILED" ? (
+        <ErrorPage />
       ) : (
-        <div className="vh-100">
-          <Spinner
-            className="position-fixed top-50 start-50"
-            animation="border"
-          />
-        </div>
-      )} */}
+        <Spinner
+          className="position-fixed top-50 start-50"
+          animation="border"
+        />
+      )}
     </>
   );
 }

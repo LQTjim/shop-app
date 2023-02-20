@@ -35,9 +35,8 @@ function App() {
 
   return (
     <>
-      <div className="d-flex flex-column vh-100 bg-light bg-gradient">
+      <div className="d-flex flex-column vh-100">
         <Navbar />
-
         <hr className="align-self-center" style={{ width: "95%" }} />
         <Routes>
           {/* protected routes */}

@@ -2,33 +2,5 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-.sidebar-overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 9999;
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(-100%);
-}
-.custom-sidebar {
-  padding: 15px;
-  position: absolute;
-  max-width: 400px;
-  height: 100%;
-  z-index: 10000;
-}
-.sidebar-overlay .noscroll {
-  overflow: hidden;
-}
-.sidebar-show {
-  transform: none;
-}
-@media (min-width: 992px) {
-  body {
-    overflow: auto !important;
-  }
+  background-color: #ececec;
 }

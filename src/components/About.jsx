@@ -8,10 +8,7 @@ function About() {
   useGoTop(location);
   return (
     <>
-      <div
-        className="d-flex justify-content-center align-items-center"
-        style={{ height: "80vh" }}
-      >
+      <div className="d-flex justify-content-center align-items-center h-100">
         測試用一般帳號:<br></br>&#123;<br></br>
         "name": "testuser123",<br></br>"email": "testuser123@gmail.com",
         <br></br>

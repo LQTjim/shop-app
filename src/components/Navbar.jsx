@@ -88,10 +88,10 @@ function Navbar() {
         <FaBars
           className="d-lg-none"
           color="gray"
-          size={40}
+          size={30}
           style={{ cursor: "pointer" }}
           onClick={() => {
-            setSideBarShow((prev) => !prev);
+            setSideBarShow(true);
           }}
         />
 

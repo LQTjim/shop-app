@@ -1,0 +1,144 @@
+.banner-img {
+  height: 100px;
+}
+.slide-conatainer {
+  background: white;
+  border: 2px solid black;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.slide-img-wrapper {
+  overflow: hidden;
+  display: flex;
+  algn-items: center;
+  justify-content: center;
+  width: 640px;
+  height: 360px;
+}
+.slide-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.left-icon {
+  top: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.left-icon:hover {
+  transform: translateX(-5px);
+  color: red;
+  opacity: 1;
+}
+.right-icon:hover {
+  transform: translateX(5px);
+  color: red;
+  opacity: 1;
+}
+.right-icon {
+  top: 50%;
+  right: 0;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.slide-dot {
+  opacity: 0.3;
+  cursor: pointer;
+}
+.slide-dot-select {
+  opacity: 1 !important;
+}
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+}
+.custom-sidebar {
+  padding: 15px;
+  position: absolute;
+  max-width: 200px;
+  height: 100%;
+  z-index: 10000;
+}
+.sidebar-overlay .noscroll {
+  overflow: hidden;
+}
+.sidebar-show {
+  transform: none;
+}
+@media screen and (max-width: 992px) {
+  .slide-img-wrapper {
+    width: 426px;
+    height: 240px;
+  }
+
+  .left-icon {
+    width: 20px !important;
+    height: 20px !important;
+    left: 0;
+  }
+  .right-icon {
+    width: 20px !important;
+    height: 20px !important;
+    right: 0;
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .fs-3 {
+    font-size: 1rem !important;
+  }
+  .fs-5 {
+    font-size: 1rem !important;
+  }
+  .slide-conatainer {
+    border: 1px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .slide-img-wrapper {
+    width: 320px;
+    height: 180px;
+  }
+
+  .left-icon,
+  .right-icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+@media screen and (max-width: 576px) {
+  .banner-img {
+    height: 50px;
+  }
+  .slide-conatainer {
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .slide-img-wrapper {
+    width: 160px;
+    height: 90px;
+  }
+
+  .left-icon {
+    width: 20px !important;
+    height: 20px !important;
+    top: 45%;
+    left: 0;
+  }
+  .right-icon {
+    width: 20px !important;
+    height: 20px !important;
+    top: 45%;
+    right: 0;
+  }
+  .slide-dot {
+    width: 10px;
+  }
+}

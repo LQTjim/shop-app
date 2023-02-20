@@ -1,14 +1,11 @@
 import React from "react";
-import { FaFilter } from "react-icons/fa";
 
 function SideFilter(props) {
   return (
-    <div className="fs-3 ms-5" style={{ flex: "0 0 11rem" }}>
-      <div className="ms-3 my-5 fs-2">
-        <FaFilter size={20} /> {"  "}商品分類
-      </div>
-      <div className="ms-2" onChange={props.onChange}>
-        <div className="form-check">
+    <div className="ms-5">
+      <div className="ms-2 d-flex" onChange={props.onChange}>
+        商品分類 :
+        <div className="form-check ms-2">
           <input
             className="form-check-input"
             type="radio"

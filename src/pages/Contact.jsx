@@ -9,10 +9,7 @@ function Contact() {
 
   return (
     <>
-      <div
-        className="d-flex justify-content-center align-items-center"
-        style={{ height: "80vh" }}
-      >
+      <div className="d-flex justify-content-center align-items-center h-100">
         <div>
           <div>
             <a href="https://github.com/LQTjim/server-for-shop-app">

@@ -27,7 +27,7 @@ function Comment(props) {
     window.location.reload();
   }
   return (
-    <div>
+    <div className="w-75">
       {!show ? (
         <div className="mt-1 d-flex flex-row justify-content-between align-items-center">
           <div>使用者評論</div>
@@ -55,24 +55,26 @@ function Comment(props) {
           </Form>
         </div>
       )}
-      {comment.length > 0
-        ? comment.map((el) => {
-            return (
-              <div
-                className="w-75 d-flex flex-row justify-content-between w-100"
-                key={el._id}
-              >
-                <span>{el?.comment}</span>
-                <div className="text-right">
-                  <span>{el.user.name}</span>
-                  <span className="mx-2">
-                    {moment(el.createdAt).format("LLL")}
-                  </span>
-                </div>
+      {comment.length > 0 ? (
+        comment.map((el) => {
+          return (
+            <div
+              className="w-75 d-flex flex-row justify-content-between w-100"
+              key={el._id}
+            >
+              <span>{el?.comment}</span>
+              <div className="text-right">
+                <span>{el.user.name}</span>
+                <span className="mx-2">
+                  {moment(el.createdAt).format("LLL")}
+                </span>
               </div>
-            );
-          })
-        : null}{" "}
+            </div>
+          );
+        })
+      ) : (
+        <div className="text-center">現在沒有評論</div>
+      )}
     </div>
   );
 }

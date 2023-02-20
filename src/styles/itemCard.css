@@ -1,0 +1,21 @@
+.item-card-img-wrapper {
+  padding: 5px;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+}
+.item-card-img {
+  align-self: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+.item-card-title {
+  width: 150px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
