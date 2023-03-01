@@ -1,0 +1,19 @@
+.search-filter-container {
+  width: 700px;
+}
+
+@media screen and (max-width: 992px) {
+  .search-filter-container {
+    width: 522px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .search-filter-container {
+    width: 345px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .search-filter-container {
+    width: 167px;
+  }
+}

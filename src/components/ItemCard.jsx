@@ -32,11 +32,13 @@ function ItemCard({ item }) {
       <div className="mb-1">評分 : {item.rating.rate}</div>
       <div className="d-flex justify-content-between">
         {isLogin ? (
-          <Button onClick={addCartHandle}>加入購物車</Button>
+          <Button className="w-100" onClick={addCartHandle}>
+            加入購物車
+          </Button>
         ) : (
           <Link
             to="/login"
-            className="btn btn-primary"
+            className="btn btn-primary w-100"
             state={{ from: location }}
           >
             加入購物車

@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import useGoTop from "./../api/useGoTop";
 import ItemCard from "./ItemCard";
 import PriceFilter from "./PriceFilter";
-import SideFilter from "./SideFilter";
+import Filter from "./Filter";
 import "./../styles/items.css";
 import SearchFilter from "./SearchFilter";
 
@@ -16,8 +16,8 @@ function Items() {
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
   const [keywordData, setKeywordData] = useState([]);
-  const [sideFilter, setSideFilter] = useState("");
-  const [filter, setFilter] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [priceFilter, setPriceFilter] = useState("");
   useGoTop(location);
   useEffect(() => {
     dispatch(getAllItemApi());
@@ -45,10 +45,10 @@ function Items() {
     setKeyword(trim);
   }
   function sideFilterHandle(e) {
-    setSideFilter(e.target.value);
+    setCategoryFilter(e.target.value);
   }
   function filterHandle(e) {
-    setFilter(e.target.value);
+    setPriceFilter(e.target.value);
   }
   /* 這樣寫會錯(最原始的版本)
   let content = keywordData;
@@ -74,20 +74,20 @@ let content = keywordData;
 */
   //最後版本
   let content = [...keywordData];
-  if (filter === "priceDescending") {
+  if (priceFilter === "priceDescending") {
     content.sort((a, b) => b.price - a.price);
   }
-  if (filter === "priceAscending") {
+  if (priceFilter === "priceAscending") {
     content.sort((a, b) => a.price - b.price);
   }
-  if (sideFilter) {
-    content = content.filter((el) => el.category === sideFilter);
+  if (categoryFilter) {
+    content = content.filter((el) => el.category === categoryFilter);
   }
   return (
     <>
       <div className="d-flex flex-column align-items-center">
         <SearchFilter onChange={searchBarHandle} keyword={keyword} />
-        <SideFilter onChange={sideFilterHandle} />
+        <Filter onChange={sideFilterHandle} />
         <PriceFilter onChange={filterHandle} />
         <div className="d-flex flex-column justify-content-center align-items-center flex-shrink-1">
           {status === "SUCCEEDED" ? (

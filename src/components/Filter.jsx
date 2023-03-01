@@ -1,10 +1,13 @@
 import React from "react";
 
-function SideFilter(props) {
+function Filter(props) {
   return (
-    <div className="ms-5">
-      <div className="ms-2 d-flex" onChange={props.onChange}>
-        商品分類 :
+    <div className="ms-5 d-md-block d-none w-75">
+      <div
+        className="ms-2 d-flex justify-content-between"
+        onChange={props.onChange}
+      >
+        分類 :
         <div className="form-check ms-2">
           <input
             className="form-check-input"
@@ -58,4 +61,4 @@ function SideFilter(props) {
   );
 }
 
-export default SideFilter;
+export default Filter;
